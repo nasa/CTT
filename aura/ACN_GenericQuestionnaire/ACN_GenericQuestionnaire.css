@@ -1,0 +1,57 @@
+.THIS .divPadding {
+    padding: 1rem !important;
+    /* border-right: 1px solid lightgrey !important; */
+}
+
+/*  Style for Serial Number  */
+.THIS {
+    counter-reset: Serial;
+    background-color:white;
+}
+
+.THIS {
+    font-size: 10pt !important;
+}
+
+.THIS .sansBold {
+    font-weight: bold !important;
+    color: #0095E4 !important;
+    font-size: 11pt !important;
+}
+.THIS.sansRegular {
+    color: #000 !important;
+}
+
+.THIS .serial-no:before
+{ 
+    counter-increment: Serial;
+    content: counter(Serial) ". " ;
+    vertical-align: top;
+    padding-top: .25rem;
+    font-weight: 700;
+    font-size:.75rem;
+    display: inline-block;
+    color: rgb(107, 109, 112);
+}
+
+.THIS .serial-no .slds-form-element{
+    display:inline-block !important;
+    width: 95%;
+}
+/*  Style for Serial Number ends */
+
+.THIS .side-by-side .slds-checkbox, .THIS .side-by-side .slds-radio{
+    display: inline-block;
+}
+
+.THIS .two-column .slds-checkbox, .THIS .two-column .slds-radio{
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.THIS .three-column .slds-checkbox, .THIS .three-column .slds-radio{
+    width: 33.33%;
+    display: inline-block;
+    vertical-align: top;
+}

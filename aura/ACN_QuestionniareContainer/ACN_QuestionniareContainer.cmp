@@ -1,0 +1,17 @@
+<!-- ACN_QuestionniareContainer -->
+<aura:component implements="lightning:availableForFlowScreens" 
+                access="global" controller="ACN_QuestionniareContainerCtrl" >
+    
+    <aura:attribute name="allQuestionMap" type="List" />
+    <aura:attribute name="allResponseMap" type="List" />
+    <aura:attribute name="extraParam" type="List" /> <!-- extra param to enable decision making based on Age/Gender/etc.. -->
+    <aura:attribute name="templateId" type="String" />
+    <aura:attribute name="StageMap" type="List" />
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="association" type="String" default="X-Case" />
+    <!-- aura:attribute name="greetName" type="String" / -->
+    <aura:attribute name="standardPrevious" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    {!v.body}
+</aura:component>

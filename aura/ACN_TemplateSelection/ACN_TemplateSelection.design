@@ -1,0 +1,9 @@
+<design:component>
+	<design:attribute name="selectedTemplate" label="Flow Template to run on launch"/>
+    <design:attribute name="standardPrevious" label="Show Previous Button"/>
+    <!-- design:attribute name="association" label="Associate To" datasource="Host, Case"/ -->
+    <design:attribute name="recordId" label="Record ID"  />
+    
+    <!-- design:attribute name="age" label="Age"/> required="{!v.association == 'Host'}"
+    <design:attribute name="gender" label="Gender"/ -->
+</design:component>

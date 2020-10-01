@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="templateId" label="Template ID"/>
+    <!-- design:attribute name="association" label="Associate To" datasource="Host, Case"/ -->
+    <design:attribute name="recordId" label="Record ID"  />
+    <design:attribute name="standardPrevious" label="Show Previous Button"/>
+</design:component>

@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template" >
+	<aura:attribute name="ACN_Question_Identifier" type="String" access="public"/>
+    <aura:attribute name="allResponseDetails" type="String" access="public"/>
+</aura:event>

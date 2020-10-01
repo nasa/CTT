@@ -1,0 +1,35 @@
+<aura:component controller="ACN_TemplateSelectionCtrl" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens"
+                access="global">
+    <aura:attribute access="public" name="ListofTemplates" type="List"/>
+    <aura:attribute access="public" name="TemplateDetails" type="Object"/>
+    <aura:attribute access="public" name="preferedTemplateId" type="String"/>
+    <aura:attribute name="recordId" type="String" />
+    <!-- aura:attribute name="association" type="String" / -->
+    <aura:attribute name="greetName" type="String" />
+    <!-- aura:attribute name="age" type="String" />
+    <aura:attribute name="gender" type="String" / -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute access="public" name="selectedTemplate" type="String"/>
+    <aura:attribute access="public" name="standardPrevious" type="Boolean"/>
+    
+    <lightning:radioGroup name="radioGroup"
+                          label="{!'Hi '+(v.greetName ne null ? v.greetName:'there')+'! How may I help you today?'}"
+                          options="{! v.ListofTemplates }" 
+                          value="{!v.preferedTemplateId}"
+                          type="radio"
+                          onchange="{!c.selectRadio}"/> 
+    
+    <div class="slds-footer slds-size_1-of-1 slds-p-top_medium">
+        <div aura:id="actionButtonBar" class="slds-clearfix slds-p-top_medium slds-border_top">
+            <div class="slds-float_left">
+                    <lightning:button label="Pause" aura:id="PAUSE" title="Pause" onclick="{! c.handlerClick }"/>
+            </div>
+            <div class="slds-float_right">
+                    <lightning:button variant="brand" aura:id="NEXT" label="Next" title="Next" 
+                                      onclick="{! c.handlerClick }" disabled="{!(empty(v.selectedTemplate))}" />
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	<div style="background: #f99; font-weight: bold; font-size: 2em; text-align: center;">
+        QUARANTINED
+    </div>
+</aura:component>

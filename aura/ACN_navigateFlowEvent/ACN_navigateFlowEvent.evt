@@ -1,0 +1,4 @@
+<!-- ACN_navigateFlowEvent.evt -->
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="action" type="String" />
+</aura:event>

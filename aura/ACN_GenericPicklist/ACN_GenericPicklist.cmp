@@ -1,0 +1,19 @@
+<!-- ACN_GenericPicklist -->
+<aura:component access="global">
+    <aura:attribute name="options" type="List" access="public" default="Red,Green,Blue"/>
+    <aura:attribute name="selectedValue" type="String" access="public"/>
+    <aura:attribute name="isRequired" type="Boolean" access="public" default="true" />
+    <aura:attribute name="label" type="String" access="public" default="Select a Color"/>
+    <aura:attribute name="name" type="String" access="public" />
+    <aura:attribute name="selected" type="String" access="public" />
+    
+    <aura:registerEvent name="assignPicklist" type="c:ACN_AssignPicklistVal" />
+    
+    <lightning:select name="{!v.name}" label="{!v.label}" required="{!v.isRequired}" value="{!v.selectedValue}" onchange="{!c.handleChange}">
+        <option value="">Select Options</option>
+        <aura:iteration items="{!v.options}" var="item">
+            <option text="{!item.label}" value="{!item.value}" selected="{!if(item.value == v.selected,'true','false')}" />
+        </aura:iteration>
+    </lightning:select>
+    
+</aura:component>

@@ -1,0 +1,10 @@
+<!-- ACN_LightningComponentFlow.cmp -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" >
+    <aura:attribute name="flowapi" type="String" default=""/>
+    <aura:attribute name="templateId" type="String" default=""/>
+    <aura:attribute name="recordId" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:flow aura:id="flowData" />
+</aura:component>
