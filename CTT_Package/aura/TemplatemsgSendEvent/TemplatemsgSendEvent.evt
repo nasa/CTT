@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="On click of send button from Messaging Template">
+
+<aura:attribute name="action" type="String" />
+
+</aura:event>

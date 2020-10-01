@@ -1,0 +1,234 @@
+<!--
+  @Component Name     : TriggerFrameworkConfigCmp.cmp
+  @Description        :  
+-->
+<aura:component controller="TriggerFrameworkConfigCmpCtrl" implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="configData" type="Object"/>
+    <aura:attribute name="profileNameList" type="String[]"/>
+    <aura:attribute name="activeProfileIds" type="Object"/>
+    <aura:attribute name="selectedProfileName" type="String"/>
+    <aura:attribute name="toggleSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="configObject" type="TriggerFrameworkConfig__mdt"
+                    default="{ 'sobjectType': 'TriggerFrameworkConfig__mdt',
+                             'Id': null,
+                             'Name': '',
+                             'Object_Name__c':'',
+                             'Trigger_Event__c':'BeforeInsert',
+                             'Enabled__c':'true',
+                             'Max_ReEntry__c':'1',
+                             'Fields__c':'',
+                             'Use_New_Transaction__c':'',
+                             'HandlerClass_ExecutionOrder__c':''
+                             }"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1" />
+    <aura:attribute name="maxPage" type="Integer" default="1" />
+    <aura:attribute name="noOfRecordPerPage" type="Integer" default="10"/>
+    <aura:attribute name="selectedRecordsRange" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.pageNumber}" action="{!c.renderPage}"/>
+    <!--<aura:attribute name="sessionId" type="String"/>-->
+    
+    <aura:if isTrue="{!v.toggleSpinner}">
+        <div class="slds-spinner_container">
+            <div role="status" class="slds-spinner slds-spinner--medium slds-spinner--brand">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <div aura:Id="ModalWindowAuraId" class="demo-only slds-hide" style="height: 640px; position: absolute">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon class="slds-modal__close"
+                                          iconName="utility:close" variant="inverse" 
+                                          alternativeText="Close" onclick="{!c.toggleModalWindow}"/>
+                    <h2 aura:Id="configModalWindowHeader" id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"></h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-form slds-form_compound">
+                        <fieldset class="slds-form-element">
+                            <div class="slds-form-element__group">
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input aura:Id="objectNameAuraId" label="Object Name" name="objectName" value="{!v.configObject.Object_Name__c}" type="text" required="true"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select aura:Id="triggerEventAuraId" 
+                                                          name="Trigger Event" 
+                                                          value="{!v.configObject.Trigger_Event__c}"
+                                                          label="Trigger Event" 
+                                                          required="true">
+                                            <aura:iteration items="BeforeInsert,BeforeUpdate,BeforeDelete,AfterInsert,AfterUpdate,AfterDelete,AfterUndelete" var="i">
+                                                <option value="{!i}" text="{!i}"></option>
+                                            </aura:iteration>
+                                        </lightning:select>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input aura:Id="helperNameAuraId" label="Helper Name" name="helperName" value="{!v.configObject.DeveloperName}" type="text" required="true" maxlength="40"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input aura:Id="maxReentryAuraId" label="Max Reentry" name="maxReentry" value="{!v.configObject.Max_ReEntry__c}" type="number" min="1" max="10" required="true"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input aura:Id="fieldsAuraId" label="Fields" name="fields" value="{!v.configObject.Fields__c}" type="text"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2" style="margin-top: 19px;">
+                                        <lightning:input aura:Id="useNewTransactionAuraId" label="Use New Transaction" name="useNewTransaction" value="" checked="{!v.configObject.Use_New_Transaction__c}" type="checkbox"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input aura:Id="excOrderAuraId" label="Handler Class Execution Order(Number)" name="exeOrder" value="{!v.configObject.HandlerClass_ExecutionOrder__c}" type="number" min="1" max="99" required="true"/>
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2" style="margin-top: 19px;">
+                                        <lightning:input aura:Id="enabledAuraId" label="Enabled" name="enabled" value="" checked="{!v.configObject.Enabled__c}" type="checkbox"/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="brand" label="Save" 
+                                      onclick="{!c.saveConfig}"/>
+                    <lightning:button variant="brand" label="Cancel" 
+                                      onclick="{!c.toggleModalWindow}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    
+    <!-- <div class="slds-text-heading_large slds-align_absolute-center">Trigger Framework Configuration Screen</div>-->
+    <div class="slds-m-top--medium"></div>
+    
+    <div class="slds-grid">
+        <div style="width:300px;">
+            <lightning:select aura:Id="ProfileNamesAuraId" 
+                              name="select" 
+                              value="{!v.selectedProfileName}"
+                              label="Profile Name" 
+                              required="true"
+                              onchange="{!c.loadProfileConfigs}">
+                <aura:iteration items="{!v.profileNameList}" var="i">
+                    <option value="{!i.Id}" text="{!i.Name}"></option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div style="margin-top: 22px;margin-left: 12px;">
+            <lightning:input aura:Id="toggleProfileAccessButton" type="toggle" label="Toggle value" name="togglevalue" checked="true" variant="label-hidden"
+                             onchange="{!c.toggleProfileAccess}"/>
+        </div>
+    </div>
+    
+    <div class="slds-m-top--small"></div>
+    <div class="slds-grid">
+        <div class="slds-grid slds-align_absolute-center">
+            <div class="slds-p-right_small">
+                <lightning:button variant="brand" label="Save" 
+                                  onclick="{!c.saveProfileConfig}"/>
+            </div>
+            <div>
+                <lightning:button variant="brand" label="Add New Configuration" 
+                                  onclick="{!c.toggleModalWindow}"/>
+            </div>
+        </div>
+        
+        <div style="position: absolute;top: 89px;right: 10px;">
+            <lightning:select name="Records Per Page" label="No Of Rows" value="{!v.noOfRecordPerPage}" 
+                              onchange="{!c.onchangeNoOfRecords}">
+                <aura:iteration items="10,20,30,40,50" var="item">
+                    <option value="{!item}" text="{!item}" selected="{!item.selected}"/>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+    </div>
+    <div class="slds-m-top--medium"></div>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col" style="width:10px;">
+                    Active Flag
+                    <!-- <lightning:input type="checkbox" label="" name="chkBox" checked="true" variant="label-hidden"/> -->
+                </th>
+                <th scope="col"><div class="slds-truncate">Object Name</div></th>
+                <th scope="col"><div class="slds-truncate">Trigger Event</div></th>
+                <th scope="col"><div class="slds-truncate">Trigger Event <br/>Handler Class</div></th>
+                <th scope="col"><div class="slds-truncate">Enabled</div></th>
+                <th scope="col"><div class="slds-truncate">Max <br/>Reentry</div></th>
+                <th scope="col"><div class="slds-truncate">Use New <br/> Transaction</div></th>
+                <th scope="col"><div class="slds-truncate">Fields</div></th>
+                <!-- <th scope="col"><div class="slds-truncate">Create</div></th> -->
+                <th scope="col"><div class="slds-truncate">Execution <br/> Order</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <aura:iteration items="{!v.selectedRecordsRange}" var="i">
+                <tr Id="{!i.Id}" onclick="{!c.editConfig}">
+                    <td>
+                        <div class="slds-hide">{!i.Id}</div>
+                        <lightning:input type="checkbox" 
+                                         label="" 
+                                         name="chkBox" 
+                                         checked="{!i.Temp__c}" 
+                                         variant="label-hidden"/>
+                    </td>
+                    <td><div class="slds-truncate" title="{!i.Object_Name__c}">{!i.Object_Name__c}</div></td>
+                    <td><div class="slds-truncate" title="{!i.Trigger_Event__c}">{!i.Trigger_Event__c}</div></td>
+                    <td><div class="slds-truncate" title="{!i.DeveloperName}">{!i.DeveloperName}</div></td>                    
+                    <td><div class="slds-truncate" title="{!i.Enabled__c}">{!i.Enabled__c}</div></td>
+                    <td><div class="slds-truncate" title="{!i.Max_ReEntry__c}">{!i.Max_ReEntry__c}</div></td>
+                    <td><div class="slds-truncate" title="{!i.Use_New_Transaction__c}">{!i.Use_New_Transaction__c}</div></td>                   
+                    <td><div class="slds-truncate" title="{!i.Fields__c}">{!i.Fields__c}</div></td>
+                    <td><div class="slds-truncate" title="{!i.HandlerClass_ExecutionOrder__c}">{!i.HandlerClass_ExecutionOrder__c}</div></td>
+                    <td>
+                        <lightning:buttonGroup >
+                            <div class="slds-button-group" role="group">
+                                <button title="{!i.Object_Name__c}" class="slds-button slds-button_neutral" onclick="{!c.createClassOrTrigger}" disabled="false">Trigger</button>
+                                <button title="{!i.DeveloperName}" class="slds-button slds-button_neutral" onclick="{!c.createClassOrTrigger}" disabled="false">Helper</button>
+                            </div>
+                        </lightning:buttonGroup>
+                    </td>
+                    <td>
+                        <!-- <lightning:button variant="brand" label="Delete" value="{!i.Id}" onclick="{!c.deleteConfig}"/> -->
+                        <lightning:buttonIcon value="{!i.Id}" iconName="utility:close" variant="brand" alternativeText="Close" iconClass="dark" onclick="{!c.deleteConfig}"/>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    <div class="slds-m-top--medium"></div>
+    
+    <div class="slds-grid slds-align_absolute-center">
+        <div class="slds-p-right_small">
+            <lightning:button variant="brand" label="Save"
+                              onclick="{!c.saveProfileConfig}"/>
+        </div>
+        <div>
+            <lightning:button variant="brand" label="Add New Configuration" 
+                              onclick="{!c.toggleModalWindow}"/>
+        </div>
+    </div>
+    
+    <div >
+        <c:APS_Pagination currentPageNumber="{!v.pageNumber}" 
+                      maxPageNumber="{!v.maxPage}"/>
+    </div>
+    
+</aura:component>

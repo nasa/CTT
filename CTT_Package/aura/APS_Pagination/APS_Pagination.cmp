@@ -1,0 +1,30 @@
+<aura:component >
+    <aura:attribute name="currentPageNumber" type="Integer" required="true"/>
+    <aura:attribute name="maxPageNumber" type="Integer" required="true"/>
+    
+    <div class="slds-button-group" role="group" style="height: 39px;">
+        <button onclick="{!c.firstPage}" class="slds-button slds-button--neutral">
+            First
+        </button>
+        <button onclick="{!c.prevPage}" class="slds-button slds-button--neutral">
+            Prev
+        </button>
+        <button class="slds-button slds-button--neutral" style="width: 135px;">
+            <div>
+                <tr>
+                    <td style="position: relative;top: -17px;">
+                        <lightning:input name="" label="" value="{!v.currentPageNumber}" onchange="{!c.enterPage}" />
+                    </td>
+                    <td style="position: relative;top: 5px;left: 2px;"> /{!v.maxPageNumber}</td>
+                </tr>
+            </div>
+        </button>
+        <button onclick="{!c.nextPage}" class="slds-button slds-button--neutral">
+            Next
+        </button>
+        <button onclick="{!c.lastPage}" class="slds-button slds-button--neutral">
+            Last
+        </button>
+    </div>
+    
+</aura:component>

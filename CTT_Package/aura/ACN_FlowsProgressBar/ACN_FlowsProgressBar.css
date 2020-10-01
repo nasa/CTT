@@ -1,0 +1,74 @@
+.THIS {
+    background-color:white;
+}
+.THIS.pmd-card-body {
+    padding-right: 3rem;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: rgba(0,0,0,.87);
+}
+
+.THIS .progress {
+    /*background: none repeat scroll 0 0 #ced4da;*/
+    border-radius: 0;
+    box-shadow: none;
+    height: 40px;
+    display: flex;
+}
+
+.THIS .progress-bar {
+    flex:1;
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    box-shadow: none;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+    /*border-top:4px solid #ced4da;
+    color: #ced4da*/
+}
+
+/*.THIS .completed {
+    border-top:4px solid #b9d547;
+}
+
+.THIS .inprogress{
+    border-top:4px solid #00b0cc;
+}*/
+
+.THIS .path-name{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0px 10px;    
+    font-size: 15px;
+    line-height: 1.25;
+    /*font-weight: 700;*/
+}
+
+/*.THIS .completed .path-name{
+    color:#b9d547 !important;
+}
+
+.THIS .inprogress .path-name{
+    color:#00b0cc !important;
+}*/
+
+.THIS .arrow-wrapper
+{
+    height:10px;
+}
+
+.THIS .active .arrow{
+    display: inline-block;
+  	vertical-align:top;
+    position: relative;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 8px 9px 0px;
+    border-top-color: #00b0cc;
+}

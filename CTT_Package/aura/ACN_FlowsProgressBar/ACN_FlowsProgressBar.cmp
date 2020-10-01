@@ -1,0 +1,52 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens" 
+                access="global" >    
+    
+    <!-- attributes -->
+    <aura:attribute name="recordslist" type="List" access="global"/> 
+    <aura:attribute name="templateList" type="List"/>
+    <aura:attribute name="screenNumber" type="Integer" />
+    <aura:attribute name="stageName" type="String" />
+    <aura:attribute name="completedColor" type="String" default="#b9d547"/>
+    <aura:attribute name="inprogressColor" type="String" default="#00b0cc"/>
+    <aura:attribute name="inactiveColor" type="String" default="#ced4da"/>
+    
+ <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> -->
+    <div class="pmd-card-body">
+        <div class="progress"> 
+            <aura:iteration items="{!v.recordslist}" var="obj" indexVar="i">
+                <aura:iteration items="{!v.templateList}" var="tempId" indexVar="j">
+                    <aura:if isTrue="{! (tempId == obj.templateId)}">
+                        <div class="{! 'progress-bar'+ ((v.screenNumber) == (obj.key) ? ' active inprogress' : (v.screenNumber)>(obj.key) ? ' completed ' : '')}">
+                            <div class="arrow-wrapper"><div class="arrow"></div></div>
+                            <div class="path-name" title="{!obj.value}">{!obj.value}</div>
+                        </div>
+                    </aura:if>
+                </aura:iteration>
+            </aura:iteration>
+            
+        </div>
+    </div>
+    <aura:html tag="style">
+        .completed {
+            border-top:4px solid {!v.completedColor} !important;
+        }
+        
+        .inprogress{
+            border-top:4px solid {!v.inprogressColor} !important;
+        }
+
+        .completed .path-name{
+        	color:{!v.completedColor} !important;
+        }
+        
+        .inprogress .path-name{
+        	color:{!v.inprogressColor} !important;
+        }
+        
+        .progress-bar {
+    		border-top:4px solid {!v.inactiveColor};
+    		color: {!v.inactiveColor};
+        }
+    </aura:html> 
+    
+</aura:component>

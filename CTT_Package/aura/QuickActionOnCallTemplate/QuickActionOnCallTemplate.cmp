@@ -1,0 +1,11 @@
+<aura:component controller="ACN_UpdateCallFlowScreen" implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" >
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="message" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    
+    <div class="slds-col modal-header slds-modal__header">
+        <h2>Updating Default Action Field in Call Flow Screens.Please click "Close" to close this box.</h2>          
+        <br/>
+        <lightning:button variant="brand" label="Close" onclick="{!c.closeClick}" />
+    </div>
+</aura:component>

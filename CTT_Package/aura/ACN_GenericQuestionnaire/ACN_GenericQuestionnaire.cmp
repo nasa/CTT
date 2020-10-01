@@ -1,0 +1,74 @@
+<!-- ACN_GenericQuestionnaire -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens" 
+                access="global" controller="ACN_ExpressionComparision">
+    
+    <!-- aura:attribute name="age" type="String" default="44"/ -->
+    
+    <aura:attribute name="availableActions" type="String[]" />
+    <aura:registerEvent name="navigateFlowEvent" type="c:ACN_navigateFlowEvent"/>
+    <aura:attribute name="screenProgressName" type="String" />
+    <aura:attribute name="allQuestionMap" type="List" />
+    <aura:attribute name="QuesRespMap" type="List" />
+    <aura:attribute name="extraParam" type="List" /> <!-- extra param to enable decision making based on Age/Gender/etc.. -->
+    <aura:attribute name="tempTemplateId" type="List" />
+    <aura:attribute name="tempTemplateIdStr" type="String" />
+    <aura:attribute name="StageTemplateSet" type="List" />
+    <aura:attribute name="allResponseMap" type="Map" default="{}" />
+    <aura:attribute name="templateId" type="String" />
+    <aura:attribute name="primaryTemplateId" type="String" />
+    <aura:attribute name="screenNo" type="String" />
+    <aura:attribute name="screenProgressNo" type="Integer" default="0" />
+    <aura:attribute name="previousScreenNo" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="association" type="String" default="X-Case" />
+    <aura:attribute name="isPrevious" type="Boolean" default="false" />
+    <aura:attribute name="isNext" type="Boolean" default="true" />
+    <aura:attribute name="isFinish" type="Boolean" default="false" />
+    <aura:attribute name="StageMap" type="List" />
+    <aura:attribute name="standardPrevious" type="Boolean"/>
+    
+    <!-- PRIVATE attribute declaration; used in helper method; cannot be accessed by other components -->
+    
+    <aura:attribute name="eachExpression" type="List" default="" access="private" />
+    <aura:attribute name="CURLYOPEN" type="String" default="{" access="private" />
+    <aura:attribute name="CURLYCLOSE" type="String" default="}" access="private" />
+    <aura:attribute name="OPEN" type="String" default="(" access="private" />
+    <aura:attribute name="CLOSE" type="String" default=")" access="private" />
+    <aura:attribute name="ANDv" type="String" default="AND" access="private" />
+    <aura:attribute name="ORv" type="String" default="OR" access="private" />
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.allQuestionMap}" action="{!c.getProgressPath}" />
+    <aura:handler event="c:ACN_AssignPicklistVal" action="{!c.handleEvent}"/> 
+
+    
+    <aura:handler name="MessageTemplateEvent" event="c:TemplatemsgSendEvent" action="{!c.nextClick}" /> <!-- Added by Ranjan -->
+   
+    <aura:if isTrue = "{!not(empty(v.StageMap))}">
+      <!--  <c:ACN_GenericProgressPath recordslist="{!v.StageMap}" templateList="{!v.StageTemplateSet}" screenNumber="{!v.screenProgressNo}" stageName="{!v.screenNo}" /> -->
+    	    <c:ACN_FlowsProgressBar recordslist="{!v.StageMap}" templateList="{!v.StageTemplateSet}" screenNumber="{!v.screenProgressNo}" stageName="{!v.screenNo}" />
+    </aura:if>
+    <div class="slds-grid slds-wrap slds-p-around_medium" aura:id="root">
+        {!v.body}
+    </div>
+    
+    <div class="slds-footer slds-size_1-of-1 slds-p-top_medium">
+        <div aura:id="actionButtonBar" class="slds-clearfix slds-p-top_medium slds-border_top">
+            <div class="slds-float_left">
+                <aura:if isTrue="{! or(v.isPrevious, v.standardPrevious)}">
+                    <lightning:button label="Previous" aura:id="BACK" title="Previous" onclick="{! c.previousClick }"/>
+                </aura:if>
+            </div>
+            <div class="slds-float_right">
+                <aura:if isTrue="{!v.isNext}">
+                    <lightning:button variant="brand" aura:id="NEXT" label="Next" title="Next" onclick="{! c.nextClick }" />
+                </aura:if>
+                <aura:if isTrue="{!v.isFinish}">
+                    <lightning:button variant="brand" aura:id="FINISH" label="Finish" title="Finish" onclick="{! c.finishClick }" />
+                </aura:if>
+                
+            </div>
+        </div>
+    </div>
+</aura:component>
