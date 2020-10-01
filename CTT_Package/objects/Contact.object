@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayouts>
+        <fullName>Contact_Tracing_Layout</fullName>
+        <fields>AccountId</fields>
+        <fields>Phone</fields>
+        <fields>Email</fields>
+        <fields>MobilePhone</fields>
+        <fields>MailingAddress</fields>
+        <fields>HealthCloudGA__PrimaryLanguage__c</fields>
+        <label>Contact Tracing Layout</label>
+    </compactLayouts>
+    <fields>
+        <fullName>Address_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(MailingStreet)), MailingStreet + &apos;, &apos; , NULL) + 
+IF(NOT(ISBLANK(MailingCity)), MailingCity + &apos;, &apos;, NULL) + 
+IF(NOT(ISBLANK(MailingState)), MailingState + &apos;, &apos;, NULL) + 
+IF(NOT(ISBLANK( MailingPostalCode )), MailingPostalCode, NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Address Text</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AlwaysTrue_c__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>AlwaysTrue</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Building_Name__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Building Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Care_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Care Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unaware</fullName>
+                    <default>false</default>
+                    <label>Unaware</label>
+                </value>
+                <value>
+                    <fullName>Quarantined</fullName>
+                    <default>false</default>
+                    <label>Quarantined</label>
+                </value>
+                <value>
+                    <fullName>In Hospital</fullName>
+                    <default>false</default>
+                    <label>In Hospital</label>
+                </value>
+                <value>
+                    <fullName>Unable to Quarantine</fullName>
+                    <default>false</default>
+                    <label>Unable to Quarantine</label>
+                </value>
+                <value>
+                    <fullName>No Quarantine</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>No Quarantine</label>
+                </value>
+                <value>
+                    <fullName>No Quarantine but Track Closely</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>No Quarantine but Track Closely</label>
+                </value>
+                <value>
+                    <fullName>Self-Quarantine</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Self-Quarantine</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contact_is_a_Minor__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Contact Object checkbox</description>
+        <externalId>false</externalId>
+        <label>Person is a Minor</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Does_contact_know_about_their_exposure__c</fullName>
+        <externalId>false</externalId>
+        <label>Does contact know about their exposure?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Employer__c</fullName>
+        <description>Contact Employer Name</description>
+        <externalId>false</externalId>
+        <formula>Account.Employer_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Employer</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employment_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Employment Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Civil Servant</fullName>
+                    <default>false</default>
+                    <label>Civil Servant</label>
+                </value>
+                <value>
+                    <fullName>Contractor/Subcontractor</fullName>
+                    <default>false</default>
+                    <label>Contractor/Subcontractor</label>
+                </value>
+                <value>
+                    <fullName>Visitor</fullName>
+                    <default>false</default>
+                    <label>Visitor</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Home_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Location1</fullName>
+                    <default>false</default>
+                    <label>Location1</label>
+                </value>
+                <value>
+                    <fullName>Location2</fullName>
+                    <default>false</default>
+                    <label>Location2</label>
+                </value>
+                <value>
+                    <fullName>Location3</fullName>
+                    <default>false</default>
+                    <label>Location3</label>
+                </value>
+                <value>
+                    <fullName>Location4</fullName>
+                    <default>false</default>
+                    <label>Location4</label>
+                </value>
+                <value>
+                    <fullName>Location5</fullName>
+                    <default>false</default>
+                    <label>Location5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_Health_Care_Worker__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Health Care Worker</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_High_Risk__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR(
+(Is_Health_Care_Worker__c),
+(Is_In_Long_Term_Care_Facility__c)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Indicates whether the person is considered high risk.</inlineHelpText>
+        <label>Is High Risk</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_In_Long_Term_Care_Facility__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is in congregate setting</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lab_that_tested__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Lab that tested</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Language__c</fullName>
+        <description>Language Picklist with global picklist value set</description>
+        <externalId>false</externalId>
+        <label>Language</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Languages</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MobilePhone</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Next_of_Kin_Name__c</fullName>
+        <description>Contact Object Next of Kin Name Text field</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Next of Kin Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_of_Kin_Phone_Number__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Next of Kin Phone Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Ordering_Facility_Description__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Ordering Facility Description</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Ordering_Provider_Number__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Ordering Provider Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarintine_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarantine Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Directed Quarantine</fullName>
+                    <default>false</default>
+                    <label>Directed Quarantine</label>
+                </value>
+                <value>
+                    <fullName>Self-Quarantine</fullName>
+                    <default>false</default>
+                    <label>Self-Quarantine</label>
+                </value>
+                <value>
+                    <fullName>No Quarantine but Track Closely</fullName>
+                    <default>false</default>
+                    <label>No Quarantine but Track Closely</label>
+                </value>
+                <value>
+                    <fullName>No Quarantine</fullName>
+                    <default>false</default>
+                    <label>No Quarantine</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Supervisor_Name__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Supervisor Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Symptom_Onset_Date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Symptom Onset Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Test_Result_Date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Test Result Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Test_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Test Pending</fullName>
+                    <default>false</default>
+                    <label>Test Pending</label>
+                </value>
+                <value>
+                    <fullName>Test Result Pending</fullName>
+                    <default>false</default>
+                    <label>Test Result Pending</label>
+                </value>
+                <value>
+                    <fullName>Test Positive</fullName>
+                    <default>false</default>
+                    <label>Test Positive</label>
+                </value>
+                <value>
+                    <fullName>Test Negative</fullName>
+                    <default>false</default>
+                    <label>Test Negative</label>
+                </value>
+                <value>
+                    <fullName>Positive</fullName>
+                    <default>false</default>
+                    <label>Positive</label>
+                </value>
+                <value>
+                    <fullName>Negative</fullName>
+                    <default>false</default>
+                    <label>Negative</label>
+                </value>
+                <value>
+                    <fullName>Inconclusive</fullName>
+                    <default>false</default>
+                    <label>Inconclusive</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Unsatisfactory</fullName>
+                    <default>false</default>
+                    <label>Unsatisfactory</label>
+                </value>
+                <value>
+                    <fullName>Detected</fullName>
+                    <default>false</default>
+                    <label>Detected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Test_Taken_Date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Test Taken Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Contact.MailingStreet}+{!Contact.MailingCity}+{!Contact.MailingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Contact.FirstName} {!Contact.LastName}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SendGmail</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Send Gmail</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://mail.google.com/mail?view=cm&amp;tf=0&amp;to={!Contact.Email}&lt;{!Contact.LastName}, {!Contact.FirstName}&gt;&amp;tf=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>YahooWeather</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Yahoo! Weather</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://weather.yahoo.com/search/weather2?p={!Contact.MailingPostalCode}</url>
+    </webLinks>
+</CustomObject>

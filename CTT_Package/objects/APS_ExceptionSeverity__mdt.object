@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>we have to store Error Messages records with Severity(Critical/Medium/Low) which is required to manage the error message Severity.</description>
+    <fields>
+        <fullName>APS_ErrorMessage__c</fullName>
+        <description>To store Error Message Type Name</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Enter exact Salesforce Error type like : System.DMLException</inlineHelpText>
+        <label>Error Message Type</label>
+        <length>250</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>APS_Severity__c</fullName>
+        <description>To store Severity of Error Message</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Select Severity of Error Message</inlineHelpText>
+        <label>Severity</label>
+        <required>true</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CRITICAL</fullName>
+                    <default>true</default>
+                    <label>CRITICAL</label>
+                </value>
+                <value>
+                    <fullName>LOW</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>LOW</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Exception Severity</label>
+    <pluralLabel>Exceptions Severity</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

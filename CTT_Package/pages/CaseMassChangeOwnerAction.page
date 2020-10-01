@@ -1,0 +1,35 @@
+<apex:page standardController="Case" recordSetVar="cases" extensions="MassChangeOwnerExtension" lightningStylesheets="true">
+    <apex:includeLightning />
+    <style>
+            body {
+    			background: white;
+			}
+        
+     </style>
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:outputpanel rendered="{!displayChangeOwner}">
+        <div id="MassChangeOwnerButtonContainer" />
+        
+        <script>
+        $Lightning.use("c:MassChangeOwnerButtonApp", function() {
+            $Lightning.createComponent("c:MassChangeOwnerButton", {caseList: '{!selectedCases}', callback: '{!url}'}, "MassChangeOwnerButtonContainer",function(cmp){console.log('Lightning Out');});});
+        </script>
+    </apex:outputpanel>
+    <apex:outputpanel rendered="{! displayNoCases}">
+        <apex:outputText value="Select at least one record and try again."  style="font-size:19px;color:black" />
+        <br/> <br/>
+        <apex:form >
+            <apex:commandButton value="Return" action="{!BackToList}"/>
+        </apex:form>
+    </apex:outputpanel>
+    
+    
+    <apex:outputpanel rendered="{! displayNoPermission }">
+        <apex:outputText value="You do not have permission to mass re-assign cases."  style="font-size:19px;color:black" />
+        <br/> <br/>
+        <apex:form >
+            <apex:commandButton value="Return" action="{!BackToList}"/>
+        </apex:form>
+    </apex:outputpanel>
+    
+</apex:page>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Exception Logging level to log an ExceptionLog__c record.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>LoggingLevel__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Logging Level</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Log Severity Level</label>
+    <visibility>Public</visibility>
+</CustomObject>

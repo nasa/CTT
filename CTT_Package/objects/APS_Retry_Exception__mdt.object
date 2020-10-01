@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Object to store error messages which are all required for Retry</description>
+    <fields>
+        <fullName>APS_Exception_Message__c</fullName>
+        <description>To store Exception Type Message</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Exception Type for which we require Retry, Ex: System.DMLException</inlineHelpText>
+        <label>Exception Type</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Retry Exception</label>
+    <pluralLabel>Retry Exceptions</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

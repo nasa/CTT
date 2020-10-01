@@ -1,0 +1,21 @@
+<apex:page sidebar="false">
+    
+    <!-- : {!$Api.Session_ID} : -->
+    
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:includeLightning />
+    
+    <div id="lightning"/>
+   
+    <script>
+        $Lightning.use("c:TriggerFrameworkApp", function() {
+            $Lightning.createComponent("c:TriggerFrameworkConfigCmp",
+                                       { sessionId : "{!$Api.Session_ID}" },
+                                       "lightning",
+                                       function(a) {
+                                           console.log(a);
+                                       });
+       });
+    </script>
+    
+</apex:page>

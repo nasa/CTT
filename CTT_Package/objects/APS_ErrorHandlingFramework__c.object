@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>To switch on/off handle Exceptions</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>APS_Stop_Handle_Exceptions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>flag to know the Exceptions to handle or not</description>
+        <externalId>false</externalId>
+        <label>Stop Handle Exceptions</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Error Handling Framework</label>
+    <visibility>Public</visibility>
+</CustomObject>

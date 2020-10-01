@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Stores the Trigger Framework Configurations</description>
+    <fields>
+        <fullName>Disabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Disabled records are equivalent to Deleted records. As we can&apos;t delete Metadata types, make them to Disabled.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Disabled records are equivalent to Deleted records</inlineHelpText>
+        <label>Disabled</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Enabled</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fields__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Fields</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HandlerClass_ExecutionOrder__c</fullName>
+        <description>Used to define order in which the Apex trigger handler classes should be executed</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>(Number) Order in which the Apex trigger handler classes should be executed (Ex. 1)</inlineHelpText>
+        <label>Handler Class Execution Order</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_ReEntry__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Max ReEntry</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Object Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Temp</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Trigger_Event__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Trigger Event</label>
+        <length>15</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Use_New_Transaction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Use New Transaction</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Trigger Framework Config</label>
+    <pluralLabel>Trigger Framework Configs</pluralLabel>
+    <validationRules>
+        <fullName>DontPopulateFieldsForNonUpdateEvents</fullName>
+        <active>true</active>
+        <description>Don&apos;t Allow Fields Configuration For Non Update Events</description>
+        <errorConditionFormula>IF((Trigger_Event__c != &apos;BeforeUpdate&apos; &amp;&amp; Trigger_Event__c != &apos;AfterUpdate&apos;) &amp;&amp; Fields__c != &apos;&apos;, true, false)</errorConditionFormula>
+        <errorMessage>Cant Populate Fields For Non Update Events</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
