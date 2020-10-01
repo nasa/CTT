@@ -1,4 +1,0 @@
-<design:component>
-	<design:attribute name="flowapi" label="Flow API Name" />
-    <design:attribute name="templateId" label="Call Flow Tempate Id" />
-</design:component>
