@@ -1,0 +1,1 @@
+public class ContactAfterInsertHelper extends ContactAfterInsertHelperCore {public static void executeHelper(TriggerFramework.Context context) {List<Contact> newList = (List<Contact>) context.newList;Map<Id, Contact> newMap = (Map<Id, Contact>) context.newMap;}}

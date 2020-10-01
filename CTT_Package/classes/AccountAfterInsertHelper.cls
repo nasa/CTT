@@ -1,0 +1,1 @@
+public class AccountAfterInsertHelper extends AccountAfterInsertHelperCore {public static void executeHelper(TriggerFramework.Context context) {List<Account> newList = (List<Account>) context.newList;Map<Id, Account> newMap = (Map<Id, Account>) context.newMap;}}
