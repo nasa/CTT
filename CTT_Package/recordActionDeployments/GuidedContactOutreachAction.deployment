@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordActionDeployment xmlns="http://soap.sforce.com/2006/04/metadata">
+    <channelConfigurations>
+        <channel>Chat</channel>
+        <channelItems>
+            <action>Guided_Script_Contact_Tracing</action>
+            <isMandatory>false</isMandatory>
+            <isUiRemoveHidden>false</isUiRemoveHidden>
+            <pinned>Top</pinned>
+            <position>0</position>
+            <type>Flow</type>
+        </channelItems>
+        <channelItems>
+            <action>Guided_Script_Positive_Outreach</action>
+            <isMandatory>false</isMandatory>
+            <isUiRemoveHidden>false</isUiRemoveHidden>
+            <pinned>Top</pinned>
+            <position>1</position>
+            <type>Flow</type>
+        </channelItems>
+        <isAutopopEnabled>false</isAutopopEnabled>
+    </channelConfigurations>
+    <channelConfigurations>
+        <channel>Phone</channel>
+        <isAutopopEnabled>false</isAutopopEnabled>
+    </channelConfigurations>
+    <channelConfigurations>
+        <channel>Other</channel>
+        <isAutopopEnabled>false</isAutopopEnabled>
+    </channelConfigurations>
+    <deploymentContexts>
+        <entityName>Case</entityName>
+    </deploymentContexts>
+    <hasGuidedActions>true</hasGuidedActions>
+    <hasRecommendations>false</hasRecommendations>
+    <masterLabel>Guided Contact Outreach Action</masterLabel>
+    <selectableItems>
+        <action>Guided_Script_Contact_Tracing</action>
+        <type>Flow</type>
+    </selectableItems>
+    <selectableItems>
+        <action>Guided_Script_Positive_Outreach</action>
+        <type>Flow</type>
+    </selectableItems>
+</RecordActionDeployment>
