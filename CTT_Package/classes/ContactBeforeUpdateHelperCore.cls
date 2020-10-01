@@ -1,0 +1,1 @@
+public virtual class ContactBeforeUpdateHelperCore implements TriggerFramework.IHandler{public void execute(TriggerFramework.Context context) {List<Contact> newList = (List<Contact>)context.newList;Map<Id, Contact> newMap = (Map<Id, Contact>)context.newMap;}}
