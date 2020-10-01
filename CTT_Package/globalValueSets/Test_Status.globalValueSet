@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Inconclusive</fullName>
+        <default>false</default>
+        <label>Inconclusive</label>
+    </customValue>
+    <customValue>
+        <fullName>Negative</fullName>
+        <default>false</default>
+        <label>Negative</label>
+    </customValue>
+    <customValue>
+        <fullName>Positive</fullName>
+        <default>false</default>
+        <label>Positive</label>
+    </customValue>
+    <customValue>
+        <fullName>Test Result Pending</fullName>
+        <default>false</default>
+        <label>Test Result Pending</label>
+    </customValue>
+    <customValue>
+        <fullName>Test Failed</fullName>
+        <default>false</default>
+        <label>Test Failed</label>
+    </customValue>
+    <masterLabel>Test Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

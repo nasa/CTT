@@ -1,0 +1,43 @@
+Dear {!Contact.Name},
+
+<p>The health and safety of our community remains our top priority. For additional information related to COVID-19, contact tracing and how to slow the spread of the virus please visit the Centers for Disease Control and Prevention (CDC) website at
+<a href="https://www.cdc.gov/coronavirus/2019-ncov/php/open-america/key-resources.html">https://www.cdc.gov/coronavirus/2019-ncov/php/open-america/key-resources.html</a></p>
+ 
+<p style="text-align:center;"><u>  Privacy Act Notice</u></p>
+
+<p>Information collected during Contact Tracing activities is authorized by 5 USC, §7901; 51 U.S.C., §20113(a); 44 U.S.C., §3101. It will be maintained in the Privacy Act System of Records Health Information Management System. The information will be used to determine whether you may have been exposed to the COVID-19 virus and to trace your interactions across the community for identifying possible points of exposure. Failure to provide the requested information may result in potential increased exposure of your colleagues to the virus.</p>
+
+<p>We may share this information for authorized purposes with (1) private or other government health care providers or agencies for referral or special program responsibilities, and (2) other entities outlined under Appendix B standard routine uses for all systems of records.
+</p>
+
+<p>
+Elaboration and conditions of information disclosure may be found under “Routine Uses” of the full System of Records Notice at <a href="www.website.gov">www.website.gov</a> and in Appendix B at <a href="www.website.gov">www.website.gov</a>.
+</p>
+<p>
+If you have any additional questions or concerns, please contact your Center Clinic:
+
+</p>
+<table cellpadding="3" cellspacing="2" style="border: thin solid #FFFFFF; font-size: 16px; font-family: 'trebuchet MS';">
+      <tr>
+          <td style="background-color:#FFFFFF; color: #000000; font-weight: bold; ">
+              <i>Center </i></td>
+          <td style="background-color: #FFFFFF; color: #000000; font-weight: bold;">
+              <i>Clinic Phone # </i></td>
+      </tr>
+      <tr>
+          <td style="background-color: #FFFFFF; color: #000000;">
+              <i>Location 1</i>
+          </td>
+          <td style="background-color: #FFFFFF; color: #000000;">
+             555-555-5555
+          </td>
+      </tr>
+      <tr>
+          <td style="background-color: #FFFFFF; color: #000000 ;"><i>
+           <i> Location 2 </i>
+          </td>
+          <td style="background-color: #FFFFFF; color: #000000;">
+             444-444-4444
+          </td>
+      </tr>
+  </table>

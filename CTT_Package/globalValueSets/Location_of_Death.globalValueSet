@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>ICU</fullName>
+        <default>false</default>
+        <label>ICU</label>
+    </customValue>
+    <customValue>
+        <fullName>OTHER</fullName>
+        <default>false</default>
+        <label>OTHER</label>
+    </customValue>
+    <customValue>
+        <fullName>OUTSIDEHOSPITAL</fullName>
+        <default>false</default>
+        <label>OUTSIDEHOSPITAL</label>
+    </customValue>
+    <customValue>
+        <fullName>EMERGENCYDEPT</fullName>
+        <default>false</default>
+        <label>EMERGENCYDEPT</label>
+    </customValue>
+    <customValue>
+        <fullName>INPATIENTWARD</fullName>
+        <default>false</default>
+        <label>INPATIENTWARD</label>
+    </customValue>
+    <customValue>
+        <fullName>Impatient ward</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Impatient ward</label>
+    </customValue>
+    <customValue>
+        <fullName>Outside Hospital</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Outside Hospital</label>
+    </customValue>
+    <customValue>
+        <fullName>Emergency Department</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Emergency Department</label>
+    </customValue>
+    <description>LOCATION_OF_DEATH</description>
+    <masterLabel>Location of Death</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

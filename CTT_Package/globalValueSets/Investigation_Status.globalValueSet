@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Case/Contact interviewed</fullName>
+        <default>false</default>
+        <label>Case/Contact interviewed</label>
+    </customValue>
+    <customValue>
+        <fullName>Refused interview</fullName>
+        <default>false</default>
+        <label>Refused interview</label>
+    </customValue>
+    <customValue>
+        <fullName>Lost to follow up</fullName>
+        <default>false</default>
+        <label>Lost to follow up</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <description>Investigation / Interview Status</description>
+    <masterLabel>Investigation Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

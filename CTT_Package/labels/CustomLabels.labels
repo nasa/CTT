@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ACN_EncodeChar</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EncodeChar</shortDescription>
+        <value>``</value>
+    </labels>
+    <labels>
+        <fullName>ACN_Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACN_Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>APS_Admin_Exception_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Admin Exception Message</shortDescription>
+        <value>An error has occurred. The details have been recorded for review by your System Administrator. Please try again.</value>
+    </labels>
+</CustomLabels>

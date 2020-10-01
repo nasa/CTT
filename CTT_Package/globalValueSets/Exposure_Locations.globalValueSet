@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>HOUSEHOLD_CONTACT</fullName>
+        <default>false</default>
+        <label>HOUSEHOLD_CONTACT</label>
+    </customValue>
+    <customValue>
+        <fullName>CLOSE_CONTACT</fullName>
+        <default>false</default>
+        <label>CLOSE_CONTACT</label>
+    </customValue>
+    <customValue>
+        <fullName>WORKPLACE</fullName>
+        <default>false</default>
+        <label>WORKPLACE</label>
+    </customValue>
+    <customValue>
+        <fullName>HEALTHCARE</fullName>
+        <default>false</default>
+        <label>HEALTHCARE</label>
+    </customValue>
+    <customValue>
+        <fullName>COMMUN_EVENT</fullName>
+        <default>false</default>
+        <label>COMMUN_EVENT</label>
+    </customValue>
+    <customValue>
+        <fullName>OTHER</fullName>
+        <default>false</default>
+        <label>OTHER</label>
+    </customValue>
+    <customValue>
+        <fullName>TRAVEL</fullName>
+        <default>false</default>
+        <label>TRAVEL</label>
+    </customValue>
+    <customValue>
+        <fullName>UNKNOWN</fullName>
+        <default>false</default>
+        <label>UNKNOWN</label>
+    </customValue>
+    <customValue>
+        <fullName>Close Contact/Friend</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Close Contact/Friend</label>
+    </customValue>
+    <customValue>
+        <fullName>Household contact</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Household contact</label>
+    </customValue>
+    <customValue>
+        <fullName>Community Event/ Group Activity</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Community Event/ Group Activity</label>
+    </customValue>
+    <masterLabel>Exposure Locations</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

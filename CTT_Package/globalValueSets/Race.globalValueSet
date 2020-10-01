@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>WHITE</fullName>
+        <default>false</default>
+        <label>WHITE</label>
+    </customValue>
+    <customValue>
+        <fullName>OTHER</fullName>
+        <default>false</default>
+        <label>OTHER</label>
+    </customValue>
+    <customValue>
+        <fullName>ASIAN</fullName>
+        <default>false</default>
+        <label>ASIAN</label>
+    </customValue>
+    <customValue>
+        <fullName>BLACK_AFRICAN_AMERICAN</fullName>
+        <default>false</default>
+        <label>BLACK_AFRICAN_AMERICAN</label>
+    </customValue>
+    <customValue>
+        <fullName>UNKNOWN</fullName>
+        <default>false</default>
+        <label>UNKNOWN</label>
+    </customValue>
+    <customValue>
+        <fullName>AMERICAN_INDIAN_ALASKAN_NATIVE</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>AMERICAN_INDIAN_ALASKAN_NATIVE</label>
+    </customValue>
+    <customValue>
+        <fullName>NATIVE_HAWAIIAN_PACIFIC_ISLANDER</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NATIVE_HAWAIIAN_PACIFIC_ISLANDER</label>
+    </customValue>
+    <customValue>
+        <fullName>American Indian or Alaskan Native</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>American Indian or Alaskan Native</label>
+    </customValue>
+    <customValue>
+        <fullName>Black or African American</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Black or African American</label>
+    </customValue>
+    <customValue>
+        <fullName>Native Hawaiian or Pacific Islander</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Native Hawaiian or Pacific Islander</label>
+    </customValue>
+    <masterLabel>Race</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
