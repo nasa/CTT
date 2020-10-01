@@ -1,0 +1,1 @@
+trigger Exposed_Contact_Review_Trigger on Exposed_Contact_Review__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {TriggerFramework.handle();}
